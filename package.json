@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:unit": "mocha $(find . -name '*.test.js')",
-    "test:unit:watch": "npm run test:unit -- --watch"
+    "test": "mocha $(find . -name '*.test.js')",
+    "test:watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",

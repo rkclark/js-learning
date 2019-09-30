@@ -11,4 +11,17 @@ module.exports = {
     curly: ['error', 'all'],
     'require-await': 'error'
   },
+  globals: {
+    expect: true
+  },
+  overrides: [
+    {
+      files: '*.test.js',
+      rules: {
+        'no-unused-expressions': 0,
+        'no-global-assign': 0,
+        
+      }
+    }
+  ]
 };
