@@ -14,4 +14,26 @@ describe('scope/lookups', () => {
       const c = foo(2);
     });
   });
+
+  describe('when not in strict mode', () => {
+    it('will create a global variable on the fly if a LHS lookup cannot be resolved', () => {
+      // eslint-disable-next-line no-undef
+      iAmNowAGlobalVariable = 2;
+
+      // eslint-disable-next-line no-undef
+      expect(iAmNowAGlobalVariable).to.equal(2);
+    });
+  });
+
+  describe('when in strict mode', () => {
+    it('will throw a ReferenceError if a LHS lookup cannot be resolved', () => {
+      expect(() => {
+        /* eslint-disable */
+        'use strict';
+        /* eslint-enable */
+        // eslint-disable-next-line no-undef
+        b = 2;
+      }).to.throw(ReferenceError);
+    });
+  });
 });
