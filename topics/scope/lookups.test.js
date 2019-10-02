@@ -36,4 +36,22 @@ describe('scope/lookups', () => {
       }).to.throw(ReferenceError);
     });
   });
+
+  describe('when a RHS lookup fails', () => {
+    it('will throw a ReferenceError', () => {
+      expect(() => {
+        // eslint-disable-next-line no-unused-vars, no-undef
+        const a = b;
+      }).to.throw(ReferenceError);
+    });
+  });
+
+  describe('when an illegal operation is attempted with the result of a RHS lookup', () => {
+    it('will throw a TypeError', () => {
+      expect(() => {
+        const b = [];
+        b();
+      }).to.throw(TypeError);
+    });
+  });
 });
