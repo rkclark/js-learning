@@ -76,7 +76,7 @@ describe('functions/closures', () => {
     });
   });
 
-  describe('to protect a function from using closed over values that have changed', () => {
+  describe('if want to protect a function from using closed over values that have changed', () => {
     it('is necessary to give the function its own lexical scope to close over', done => {
       const countArray = [];
 
